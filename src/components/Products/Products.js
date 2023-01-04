@@ -1,14 +1,14 @@
 import React from "react";
 import Product from "../Product/Product";
-
-const Products = () => {
+import "./Products.css";
+const Products = ({ products }) => {
+  let newProducts = [...products];
+  newProducts.length = 12;
   return (
-    <div
-      style={{
-        padding: "10px",
-      }}
-    >
-      <Product></Product>
+    <div className="products">
+      {newProducts.map((product) => (
+        <Product product={product} key={product.id}></Product>
+      ))}
     </div>
   );
 };

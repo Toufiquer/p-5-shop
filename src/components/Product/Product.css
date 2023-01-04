@@ -1,0 +1,38 @@
+.product {
+  border: 2px solid #34d399;
+  max-width: 300px;
+  padding: 10px;
+  min-height: 450px;
+  position: relative;
+}
+.product img {
+  width: 100%;
+}
+.details {
+  padding: 10px;
+}
+.button-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+}
+.button-container button {
+  padding: 6px;
+  width: 50%;
+  border: none;
+  cursor: pointer;
+}
+.button-container button.add {
+  background-color: #6ee7b7;
+}
+.button-container button.add:hover {
+  background-color: #06b6d4;
+}
+.button-container button.remove {
+  background-color: #ec4899;
+}
+.button-container button.remove:hover {
+  background-color: #be185d;
+}
