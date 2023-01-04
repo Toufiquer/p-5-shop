@@ -1,4 +1,5 @@
 import React from "react";
+import { addToCart, removeFromCart } from "../utilities/manageDB";
 import "./Product.css";
 const Product = ({ product: { name, id, img, price, ratings } }) => {
   return (
@@ -11,8 +12,12 @@ const Product = ({ product: { name, id, img, price, ratings } }) => {
         <p>Rating: {ratings}</p>
       </div>
       <div className="button-container">
-        <button className="add">Add</button>
-        <button className="remove">Remove </button>
+        <button onClick={() => addToCart(id)} className="add">
+          Add
+        </button>
+        <button onClick={() => removeFromCart(id)} className="remove">
+          Remove{" "}
+        </button>
       </div>
     </div>
   );
