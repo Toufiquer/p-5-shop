@@ -1,7 +1,7 @@
 import React from "react";
 import { deleteAllCart } from "../utilities/manageDB";
 import "./Cart.css";
-const Cart = ({ cart, showCart, products }) => {
+const Cart = ({ cart, updateCart }) => {
   let totalItem = cart.reduce((acc, curr) => {
     acc += curr.quantity;
     return acc;
@@ -20,7 +20,7 @@ const Cart = ({ cart, showCart, products }) => {
         <button
           onClick={() => {
             deleteAllCart();
-            showCart(products);
+            updateCart();
           }}
         >
           Clear All Data

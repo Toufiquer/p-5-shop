@@ -1,3 +1,5 @@
+import { searchProducts } from "./searchProducts";
+
 const getItem = () => {
   let item = localStorage.getItem("shoppingCart");
   if (item) {
@@ -33,4 +35,9 @@ const removeFromCart = (id) => {
   }
   setItem(cartItem);
 };
-export { getItem, addToCart, removeFromCart, deleteAllCart };
+const showCart = (products) => {
+  let cartItem = getItem();
+  const getStoredProducts = searchProducts(cartItem, products);
+  return getStoredProducts;
+};
+export { getItem, addToCart, removeFromCart, deleteAllCart, showCart };

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Cart from "../Cart/Cart";
 import Products from "../Products/Products";
-import { getItem } from "../utilities/manageDB";
-import { searchProducts } from "../utilities/searchProducts";
+import { showCart } from "../utilities/manageDB";
 import "./Shopping.css";
 const Shopping = () => {
   const [products, setProducts] = useState([]);
@@ -12,18 +11,18 @@ const Shopping = () => {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
-  const showCart = (products) => {
-    let cartItem = getItem();
-    const getStoredProducts = searchProducts(cartItem, products);
+  const updateCart = () => {
+    const getStoredProducts = showCart(products);
     setCart(getStoredProducts);
   };
   useEffect(() => {
-    showCart(products);
+    const getStoredProducts = showCart(products);
+    setCart(getStoredProducts);
   }, [products]);
   return (
     <div className="shopping">
-      <Products showCart={showCart} products={products}></Products>
-      <Cart showCart={showCart} products={products} cart={cart}></Cart>
+      <Products updateCart={updateCart} products={products}></Products>
+      <Cart updateCart={updateCart} cart={cart}></Cart>
     </div>
   );
 };
