@@ -8,3 +8,7 @@
   min-height: 600px;
   padding: 10px;
 }
+h2,
+h3 {
+  margin-bottom: 9px;
+}

@@ -31,4 +31,4 @@ const removeFromCart = (id) => {
   }
   setItem(cartItem);
 };
-export { addToCart, removeFromCart };
+export { getItem, addToCart, removeFromCart };

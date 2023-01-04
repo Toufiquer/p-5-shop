@@ -1,7 +1,7 @@
 import React from "react";
 import { addToCart, removeFromCart } from "../utilities/manageDB";
 import "./Product.css";
-const Product = ({ product: { name, id, img, price, ratings } }) => {
+const Product = ({ products, showCart, product: { name, id, img, price, ratings } }) => {
   return (
     <div className="product">
       <img src={img} alt={name} />
@@ -12,10 +12,22 @@ const Product = ({ product: { name, id, img, price, ratings } }) => {
         <p>Rating: {ratings}</p>
       </div>
       <div className="button-container">
-        <button onClick={() => addToCart(id)} className="add">
+        <button
+          onClick={() => {
+            addToCart(id);
+            showCart(products);
+          }}
+          className="add"
+        >
           Add
         </button>
-        <button onClick={() => removeFromCart(id)} className="remove">
+        <button
+          onClick={() => {
+            removeFromCart(id);
+            showCart(products);
+          }}
+          className="remove"
+        >
           Remove{" "}
         </button>
       </div>
