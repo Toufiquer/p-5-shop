@@ -10,7 +10,9 @@ const getItem = () => {
 const setItem = (item) => {
   localStorage.setItem("shoppingCart", JSON.stringify(item));
 };
-
+const deleteAllCart = () => {
+  localStorage.removeItem("shoppingCart");
+};
 const addToCart = (id) => {
   let cartItem = getItem();
   if (cartItem[id]) {
@@ -31,4 +33,4 @@ const removeFromCart = (id) => {
   }
   setItem(cartItem);
 };
-export { getItem, addToCart, removeFromCart };
+export { getItem, addToCart, removeFromCart, deleteAllCart };

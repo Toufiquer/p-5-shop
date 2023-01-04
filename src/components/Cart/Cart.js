@@ -1,6 +1,7 @@
 import React from "react";
+import { deleteAllCart } from "../utilities/manageDB";
 import "./Cart.css";
-const Cart = ({ cart }) => {
+const Cart = ({ cart, showCart, products }) => {
   let totalItem = cart.reduce((acc, curr) => {
     acc += curr.quantity;
     return acc;
@@ -16,6 +17,14 @@ const Cart = ({ cart }) => {
         <h3>Total Shopping: ${totalShopping}</h3>
         <h3>Tax: ${(totalShopping * 0.1).toFixed(2)}</h3>
         <h2>Grand Total: ${(totalShopping + totalShopping * 0.1).toFixed(2)}</h2>
+        <button
+          onClick={() => {
+            deleteAllCart();
+            showCart(products);
+          }}
+        >
+          Clear All Data
+        </button>
       </div>
     </div>
   );

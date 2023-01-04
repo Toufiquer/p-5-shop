@@ -23,7 +23,7 @@ const Shopping = () => {
   return (
     <div className="shopping">
       <Products showCart={showCart} products={products}></Products>
-      <Cart cart={cart}></Cart>
+      <Cart showCart={showCart} products={products} cart={cart}></Cart>
     </div>
   );
 };
