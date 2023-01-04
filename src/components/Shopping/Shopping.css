@@ -1,0 +1,6 @@
+.shopping {
+  display: grid;
+  grid-template-columns: 6fr 2fr;
+  background-color: #bbf7d0;
+  min-height: 100vh;
+}
